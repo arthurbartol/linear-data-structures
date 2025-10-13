@@ -15,11 +15,11 @@ $(shell mkdir -p $(BUILD_DIR))
 all: $(BUILD_DIR)/test_dynamic_array $(BUILD_DIR)/test_stack $(BUILD_DIR)/test_queue $(BUILD_DIR)/test_linked_list $(BUILD_DIR)/test_double_linked_list
 
 # Build test binaries
-$(BUILD_DIR)/test_dynamic_array: $(SRC_FILES) $(TESTS_SRC_FILES)
+$(BUILD_DIR)/test_dynamic_array: $(SRC_DIR)/dynamic_array.c $(TESTS_DIR)/test_dynamic_array.c
 	$(CC) $(CFLAGS) $^ -o $@
 
-$(BUILD_DIR)/test_stack:
-	@echo "[TODO] Stack test not implemented yet."
+$(BUILD_DIR)/test_stack: $(SRC_DIR)/stack.c $(TESTS_DIR)/test_stack.c
+	$(CC) $(CFLAGS) $^ -o $@
 
 $(BUILD_DIR)/test_queue:
 	@echo "[TODO] Queue test not implemented yet."
@@ -34,6 +34,8 @@ $(BUILD_DIR)/test_double_linked_list:
 run-tests: all
 	@echo "\n--- Running Dynamic Array Test ---\n"
 	@$(BUILD_DIR)/test_dynamic_array
+	@echo "\n--- Running Stack Test ---\n"
+	@$(BUILD_DIR)/test_stack
 
 clean:
 	rm -rf $(BUILD_DIR)
