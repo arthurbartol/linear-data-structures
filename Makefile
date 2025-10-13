@@ -27,8 +27,8 @@ $(BUILD_DIR)/test_queue: $(SRC_DIR)/queue.c $(TESTS_DIR)/test_queue.c
 $(BUILD_DIR)/test_linked_list: $(SRC_DIR)/linked_list.c $(TESTS_DIR)/test_linked_list.c
 	$(CC) $(CFLAGS) $^ -o $@
 
-$(BUILD_DIR)/test_double_linked_list:
-	@echo "[TODO] Double linked list test not implemented yet."
+$(BUILD_DIR)/test_double_linked_list: $(SRC_DIR)/double_linked_list.c $(TESTS_DIR)/test_double_linked_list.c
+	$(CC) $(CFLAGS) $^ -o $@
 
 
 run-tests: all
@@ -40,6 +40,8 @@ run-tests: all
 	@$(BUILD_DIR)/test_queue
 	@echo "\n--- Running Linked List Test ---\n"
 	@$(BUILD_DIR)/test_linked_list
+	@echo "\n--- Running Double Linked List Test ---\n"
+	@$(BUILD_DIR)/test_double_linked_list
 
 clean:
 	rm -rf $(BUILD_DIR)
