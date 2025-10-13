@@ -21,8 +21,8 @@ $(BUILD_DIR)/test_dynamic_array: $(SRC_DIR)/dynamic_array.c $(TESTS_DIR)/test_dy
 $(BUILD_DIR)/test_stack: $(SRC_DIR)/stack.c $(TESTS_DIR)/test_stack.c
 	$(CC) $(CFLAGS) $^ -o $@
 
-$(BUILD_DIR)/test_queue:
-	@echo "[TODO] Queue test not implemented yet."
+$(BUILD_DIR)/test_queue: $(SRC_DIR)/queue.c $(TESTS_DIR)/test_queue.c
+	$(CC) $(CFLAGS) $^ -o $@
 
 $(BUILD_DIR)/test_linked_list:
 	@echo "[TODO] Linked list test not implemented yet."
@@ -36,6 +36,8 @@ run-tests: all
 	@$(BUILD_DIR)/test_dynamic_array
 	@echo "\n--- Running Stack Test ---\n"
 	@$(BUILD_DIR)/test_stack
+	@echo "\n--- Running Queue Test ---\n"
+	@$(BUILD_DIR)/test_queue
 
 clean:
 	rm -rf $(BUILD_DIR)
