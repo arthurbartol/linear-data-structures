@@ -3,7 +3,7 @@ A modular, generic implementation of classic linear data structures using C.
 
 ## Project Structure
 ```
-linear_data_structures/
+linear-data-structures/
 ├── src/
 │ ├── array.c / array.h
 │ ├── stack.c / stack.h
